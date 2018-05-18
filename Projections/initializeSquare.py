@@ -56,15 +56,19 @@ def project(shape):
         for j in range(newNumberCells):
             count += shape[i, j]
         line[i] = count
-        
-        
-        
+    
+    line = list(line)
+    while min(line) == 0:
+        line.remove(0)
+    
+    line = np.asarray(line)
+    
     total = 0
     newLine = []
     
     binSize = 6.0
     
-    for i in range(newNumberCells):
+    for i in range(len(line)):
         if i%binSize != 0: 
             total += line[i]
         else: 
@@ -72,9 +76,10 @@ def project(shape):
             newLine.append(value)
             value = 0
             total = 0
-        
+    
     while min(newLine) == 0:
         newLine.remove(0)
+    
             
     
     newLine = np.asarray(newLine)
@@ -114,8 +119,8 @@ def project(shape):
         
     
     
-"""
-theta = np.pi /6.0
+
+theta = np.pi /4.0
 
 square = makeSquare(1)
 rotated = rotateShape(square, theta)
@@ -136,7 +141,7 @@ testLine = [newLine]
 plt.imshow(testLine, interpolation='bicubic')
 plt.show()
 
-"""
+
 
 
 
