@@ -83,37 +83,31 @@ def project(shape):
             
     
     newLine = np.asarray(newLine)
-            
-    
-    
-    
-    
-    """
-        array = []
-        
-        maximum = np.max(line)
-        for i in range(newNumberCells):
-            if line[i] == maximum: 
-                place = i
-                break
-        
-        array.append(line[0])
-        
-        for i in range(newNumberCells):
-            if i >0 and i < place: 
-                if line[i] >= array[-1]:
-                    array.append(line[i])
-            
-        for i in range(place+2, newNumberCells):
-            if line[i] < array[-1]:
-                array.append(line[i])
-        
-        newLine = np.asarray(array)
-    """
-    
-    
+
     return line, newLine
     
+
+def indexMap(sideLength):
+    
+    xSquare = np.zeros((sideLength, sideLength))
+    ySquare = np.zeros((sideLength, sideLength))
+    
+    for i in range(sideLength):
+        for j in range(sideLength):
+            xSquare[i, j] = i
+            ySquare[i, j] = j
+    
+    
+    half = sideLength/2
+
+    for i in range(sideLength):
+        for j in range(sideLength):
+            xSquare[i, j] = i-half
+            ySquare[i, j] = j-half
+    
+    return xSquare, ySquare
+
+
     
     
         
