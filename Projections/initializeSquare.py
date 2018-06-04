@@ -1,10 +1,10 @@
 import numpy as np
-import matplotlib.pyplot as plt
+#import matplotlib.pyplot as plt
 
 
 
 def makeSquare(sideLength):
-    numberCells = sideLength*100
+    numberCells = sideLength*10
     #cellSize = 1/(numberCells)
     square = np.zeros((numberCells, numberCells))
     
@@ -13,6 +13,7 @@ def makeSquare(sideLength):
             square[i, j] = 1
     
     return square
+
 
 def rotateShape(shape, theta):
     numberCells = len(shape)
@@ -77,6 +78,7 @@ def project(shape):
             value = 0
             total = 0
     
+    
     while min(newLine) == 0:
         newLine.remove(0)
     
@@ -113,7 +115,7 @@ def indexMap(sideLength):
         
     
     
-
+"""
 theta = np.pi /4.0
 
 square = makeSquare(1)
@@ -134,7 +136,7 @@ plt.show()
 testLine = [newLine]
 plt.imshow(testLine, interpolation='bicubic')
 plt.show()
-
+"""
 
 
 

@@ -10,10 +10,11 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def circle(radius, xSquare, ySquare):
+def circle(radius):
     sideLength =3*radius
     
     shape = isquare.makeSquare(sideLength)
+    #effectiveRadius = 10*radius
     
     for i in range(len(shape)):
         for j in range(len(shape)):
@@ -23,7 +24,7 @@ def circle(radius, xSquare, ySquare):
             #x = xSquare[i, j]
             #y = ySquare[i, j]
             
-            if x**2+y**2 >= radius**2: 
+            if x**2+y**2 > radius**2: 
                 #print ("Outside Circle")
                 shape[i, j] = 0
     
@@ -31,25 +32,25 @@ def circle(radius, xSquare, ySquare):
 
 
 
-
-
 theta = np.pi /6.0
 
-xSquare, ySquare = isquare.indexMap(3)
+#xSquare, ySquare = isquare.indexMap(3)
 
 
 #square = makeSquare(1)
-circle = circle(30, xSquare, ySquare)
-rotated = isquare.rotateShape(circle, 0)
-line, newLine = isquare.project(rotated)
+circle = circle(30)
+line, newLine = isquare.project(circle)
 
-for i in range(len(newLine)):
-    print (newLine[i])
 
-print ("Original")
 
-for i in range(len(line)):
-    print (line[i])
+
+#for i in range(len(newLine)):
+    #print (newLine[i])
+
+#print ("Original")
+
+#for i in range(len(line)):
+    #print (line[i])
 
 plt.plot(newLine, 'ro')
 plt.show()
